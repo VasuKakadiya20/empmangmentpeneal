@@ -22,6 +22,10 @@ export default function Attendance() {
         });
 
         setAttendanceRecords(res.data || []);
+       
+
+// Time without seconds (24-hour format)
+
         const today = new Date().toISOString().slice(0, 10);
         const todayRecord = res.data.find((a) => a.date === today);
 
@@ -156,8 +160,20 @@ export default function Attendance() {
   // Format time to HH:MM:SS
   const formatTime = (dateString) => {
     if (!dateString) return "—";
-    return new Date(dateString).toLocaleTimeString();
+    return new Date(dateString).toLocaleTimeString(navigator.language, {
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: true // true → AM/PM format
+});
   };
+
+   const now = new Date();
+  const timeWithoutSeconds = now.toLocaleTimeString(navigator.language, {
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false // true → AM/PM format
+});
+console.log(timeWithoutSeconds)
 
   return (
     <div className="bg-gray-100 flex items-center justify-center p-4">
