@@ -27,7 +27,7 @@ const io = socketIo(server, {
       'http://localhost:3002',
       'https://backend-io23.onrender.com',
       'https://empadmin.vercel.app',
-      // 'https://employee-swart.vercel.app',
+      'https://employee-psi-three.vercel.app',
     ],
     methods: ['GET', 'POST'],
     credentials: true,
@@ -71,7 +71,7 @@ app.use(cors({
   origin: [
     'https://empadmin.vercel.app',
     'https://backend-io23.onrender.com',
-    'https://employee-swart.vercel.app',
+    'https://employee-psi-three.vercel.app',
     'http://localhost:3003',
     'http://localhost:3002',
     'http://localhost:3001'
