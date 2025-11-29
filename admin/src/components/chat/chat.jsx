@@ -21,7 +21,7 @@ function ChatWindow({ chatId, employeeName }) {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    socketRef.current = io("http://localhost:3000", {
+    socketRef.current = io("https://backend-io23.onrender.com", {
       withCredentials: true,
     });
 

@@ -25,7 +25,7 @@ export default function Projects() {
         throw new Error("No authentication token found");
       }
 
-      const res = await axios.get("http://localhost:3000/employee/projects", {
+      const res = await axios.get("https://backend-io23.onrender.com/employee/projects", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setProjects(res.data.projects || res.data);
@@ -52,7 +52,7 @@ export default function Projects() {
       if (!token) throw new Error("No authentication token found");
 
       const res = await axios.get(
-        `http://localhost:3000/employee/projects/${projectId}/tasks`,
+        `https://backend-io23.onrender.com/employee/projects/${projectId}/tasks`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -74,7 +74,7 @@ export default function Projects() {
       if (!token) throw new Error("No authentication token found");
 
       await axios.patch(
-        `http://localhost:3000/employee/tasks/${taskId}/status`,
+        `https://backend-io23.onrender.com/employee/tasks/${taskId}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -213,7 +213,7 @@ PORT=3000
 ### Frontend (`.env`)
 
 ```env
-REACT_APP_BACKEND_URL=http://localhost:3000
+REACT_APP_BACKEND_URL=https://backend-io23.onrender.com
 ```
 
 ## Installation & Setup

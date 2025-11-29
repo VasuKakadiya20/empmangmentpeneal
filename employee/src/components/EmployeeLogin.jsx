@@ -21,7 +21,7 @@ function EmployeeLogin() {
     setError('');
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:3000/employee/login', form);
+      const res = await axios.post('https://backend-io23.onrender.com/employee/login', form);
       sessionStorage.setItem('employeeToken', res.data.token);
       toast.success('Login Successful!', {
         position: 'top-right',

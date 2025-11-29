@@ -37,7 +37,7 @@ const Header = ({ toggleSidebar, toggleSidebarCollapse, isSidebarOpen }) => {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    socketRef.current = io('http://localhost:3000', {
+    socketRef.current = io('https://backend-io23.onrender.com', {
       withCredentials: true,
     });
 
@@ -118,7 +118,7 @@ const Header = ({ toggleSidebar, toggleSidebarCollapse, isSidebarOpen }) => {
 
   const fetchNotifications = async () => {
     try {
-      const response = await fetch('http://localhost:3000/admin/notifications', {
+      const response = await fetch('https://backend-io23.onrender.com/admin/notifications', {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem('token')}`,
           'x-user-id': sessionStorage.getItem('adminId') || '',
@@ -135,7 +135,7 @@ const Header = ({ toggleSidebar, toggleSidebarCollapse, isSidebarOpen }) => {
 
   const markAsRead = async (id) => {
     try {
-      await fetch(`http://localhost:3000/notifications/${id}/read`, {
+      await fetch(`https://backend-io23.onrender.com/notifications/${id}/read`, {
         method: 'PATCH',
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem('token')}`,
@@ -153,7 +153,7 @@ const Header = ({ toggleSidebar, toggleSidebarCollapse, isSidebarOpen }) => {
 
   const deleteNotification = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/notifications/${id}`, {
+      const response = await fetch(`https://backend-io23.onrender.com/notifications/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem('token')}`,

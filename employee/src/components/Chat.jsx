@@ -23,7 +23,7 @@ function Chat() {
   const socketRef = useRef(null);
 
   useEffect(() => {
-    socketRef.current = io("http://localhost:3000", {
+    socketRef.current = io("https://backend-io23.onrender.com", {
       withCredentials: true,
     });
 
@@ -65,7 +65,7 @@ function Chat() {
         const token = sessionStorage.getItem("employeeToken");
         if (!token) return;
 
-        const res = await axios.get("http://localhost:3000/employee/profile", {
+        const res = await axios.get("https://backend-io23.onrender.com/employee/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -83,7 +83,7 @@ function Chat() {
         let id = chatId;
 
         if (!id && employee._id && employee.name) {
-          const res = await axios.post("http://localhost:3000/chat/create", {
+          const res = await axios.post("https://backend-io23.onrender.com/chat/create", {
             employeeId: employee._id,
             employeeName: employee.name,
           });
@@ -92,7 +92,7 @@ function Chat() {
         }
 
         if (id) {
-          const res = await axios.get(`http://localhost:3000/msg/${id}`);
+          const res = await axios.get(`https://backend-io23.onrender.com/msg/${id}`);
           setMessages(res.data);
         }
       } catch (err) {
@@ -111,7 +111,7 @@ function Chat() {
   const sendMessage = async () => {
     if (!text.trim() || !chatId) return;
     try {
-      const res = await axios.post("http://localhost:3000/msg/", {
+      const res = await axios.post("https://backend-io23.onrender.com/msg/", {
         chatId,
         sender: employee.name,
         receiver: "admin",

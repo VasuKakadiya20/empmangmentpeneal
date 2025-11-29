@@ -17,7 +17,7 @@ export default function Attendance() {
         const token = sessionStorage.getItem("employeeToken");
         if (!token) throw new Error("No authentication token found");
 
-        const res = await axios.get("http://localhost:3000/employee/attendance", {
+        const res = await axios.get("https://backend-io23.onrender.com/employee/attendance", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -49,7 +49,7 @@ export default function Attendance() {
       if (!checkIn) {
         // Check-in
         const res = await axios.post(
-          "http://localhost:3000/employee/attendance/checkin",
+          "https://backend-io23.onrender.com/employee/attendance/checkin",
           {},
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -61,7 +61,7 @@ export default function Attendance() {
       } else if (!checkOut) {
         // Check-out
         const res = await axios.post(
-          "http://localhost:3000/employee/attendance/checkout",
+          "https://backend-io23.onrender.com/employee/attendance/checkout",
           {},
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -91,7 +91,7 @@ export default function Attendance() {
       if (!onBreak) {
         // Start break
         res = await axios.post(
-          "http://localhost:3000/employee/attendance/breakin",
+          "https://backend-io23.onrender.com/employee/attendance/breakin",
           {},
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -99,7 +99,7 @@ export default function Attendance() {
       } else {
         // End break
         res = await axios.post(
-          "http://localhost:3000/employee/attendance/breakout",
+          "https://backend-io23.onrender.com/employee/attendance/breakout",
           {},
           { headers: { Authorization: `Bearer ${token}` } }
         );

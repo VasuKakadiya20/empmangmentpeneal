@@ -40,7 +40,7 @@ export default function EmployeeLeaves() {
     try {
       setLoading(true);
       const token = sessionStorage.getItem('employeeToken');
-      const { data } = await axios.get("http://localhost:3000/employee/leaves", {
+      const { data } = await axios.get("https://backend-io23.onrender.com/employee/leaves", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setLeaves(data);
@@ -77,7 +77,7 @@ export default function EmployeeLeaves() {
     try {
       setLoading(true);
       const token = sessionStorage.getItem('employeeToken');
-      await axios.post("http://localhost:3000/employee/leaves", {
+      await axios.post("https://backend-io23.onrender.com/employee/leaves", {
         ...form,
         days,
         description: form.description || '-',

@@ -51,7 +51,7 @@ const Header = ({ userName = 'Employee' }) => {
   };
 
   useEffect(() => {
-    socketRef.current = io('http://localhost:3000', { withCredentials: true });
+    socketRef.current = io('https://backend-io23.onrender.com', { withCredentials: true });
 
     const token = sessionStorage.getItem('employeeToken');
     const getIdFromToken = (jwt) => {
@@ -148,7 +148,7 @@ const Header = ({ userName = 'Employee' }) => {
 
   const fetchNotifications = async () => {
     try {
-      const response = await fetch('http://localhost:3000/employee/notifications', {
+      const response = await fetch('https://backend-io23.onrender.com/employee/notifications', {
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem('employeeToken')}`,
           'x-user-id': sessionStorage.getItem('employeeId') || '',
@@ -165,7 +165,7 @@ const Header = ({ userName = 'Employee' }) => {
 
   const markAsRead = async (id) => {
     try {
-      await fetch(`http://localhost:3000/notifications/${id}/read`, {
+      await fetch(`https://backend-io23.onrender.com/notifications/${id}/read`, {
         method: 'PATCH',
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem('employeeToken')}`,
@@ -183,7 +183,7 @@ const Header = ({ userName = 'Employee' }) => {
 
   const deleteNotification = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/notifications/${id}`, {
+      const response = await fetch(`https://backend-io23.onrender.com/notifications/${id}`, {
         method: 'DELETE',
         headers: {
           Authorization: `Bearer ${sessionStorage.getItem('employeeToken')}`,

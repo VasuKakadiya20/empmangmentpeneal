@@ -67,7 +67,7 @@ export default function Projects() {
       const token = sessionStorage.getItem("token");
       if (!token) throw new Error("No authentication token found");
       const response = await axios.get(
-        "http://localhost:3000/admin/employees",
+        "https://backend-io23.onrender.com/admin/employees",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -93,7 +93,7 @@ export default function Projects() {
       };
 
       const response = await axios.get(
-        "http://localhost:3000/admin/projects",
+        "https://backend-io23.onrender.com/admin/projects",
         {
           params,
           headers: { Authorization: `Bearer ${token}` },
@@ -123,7 +123,7 @@ export default function Projects() {
       if (!token) throw new Error("No authentication token found");
       console.log("Fetching tasks for project ID:", projectId);
       const response = await axios.get(
-        `http://localhost:3000/admin/projects/${projectId}/tasks`,
+        `https://backend-io23.onrender.com/admin/projects/${projectId}/tasks`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -210,7 +210,7 @@ export default function Projects() {
 
       if (editProject) {
         await axios.put(
-          `http://localhost:3000/admin/projects/${editProject}`,
+          `https://backend-io23.onrender.com/admin/projects/${editProject}`,
           projectData,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -219,7 +219,7 @@ export default function Projects() {
         });
       } else {
         await axios.post(
-          "http://localhost:3000/admin/projects",
+          "https://backend-io23.onrender.com/admin/projects",
           projectData,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -248,7 +248,7 @@ export default function Projects() {
       const token = sessionStorage.getItem("token");
       if (!token) throw new Error("No authentication token found");
       await axios.delete(
-        `http://localhost:3000/admin/projects/${id}`,
+        `https://backend-io23.onrender.com/admin/projects/${id}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -274,7 +274,7 @@ export default function Projects() {
       const token = sessionStorage.getItem("token");
       if (!token) throw new Error("No authentication token found");
       await axios.patch(
-        `http://localhost:3000/admin/projects/${projectId}/status`,
+        `https://backend-io23.onrender.com/admin/projects/${projectId}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -295,7 +295,7 @@ export default function Projects() {
       const token = sessionStorage.getItem("token");
       if (!token) throw new Error("No authentication token found");
       await axios.patch(
-        `http://localhost:3000/admin/projects/${projectId}/progress`,
+        `https://backend-io23.onrender.com/admin/projects/${projectId}/progress`,
         { progress: newProgress },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -324,7 +324,7 @@ export default function Projects() {
       const token = sessionStorage.getItem("token");
       if (!token) throw new Error("No authentication token found");
       await axios.post(
-        `http://localhost:3000/admin/projects/${selectedProject._id}/tasks`,
+        `https://backend-io23.onrender.com/admin/projects/${selectedProject._id}/tasks`,
         taskForm,
         { headers: { Authorization: `Bearer ${token}` } }
       );

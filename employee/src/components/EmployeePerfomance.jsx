@@ -57,7 +57,7 @@ function EmployeeDashboard() {
 
     try {
       const headers = { Authorization: `Bearer ${token}` };
-      const baseUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:3000';
+      const baseUrl = process.env.REACT_APP_BACKEND_URL || 'https://backend-io23.onrender.com';
 
       const responses = await Promise.all(
         Object.values(API_ENDPOINTS).map((endpoint) =>
