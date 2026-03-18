@@ -12,6 +12,7 @@ import Attendance from "./components/Attendance";
 import EmployeeLogin from "./components/EmployeeLogin";
 import EmployeePerfomance from "./components/EmployeePerfomance";
 import Chat from "./components/Chat";
+import { Analytics } from "@vercel/analytics/react"
 
 function ProtectedRoute({ children }) {
   const token = sessionStorage.getItem('employeeToken');
@@ -54,6 +55,7 @@ function App() {
           }
         />
       </Routes>
+      <Analytics />
     </Router>
   );
 }
