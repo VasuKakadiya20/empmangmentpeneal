@@ -15,7 +15,7 @@ import { useAuth } from "./hooks/useAuth";
 import Calendar from "./components/Calendar";
 import EmployeePerfomance from "./components/EmployeePerfomance";
 import ChatLayout from "./pages/Chat";
-import { Analytics } from "@vercel/analytics/react"
+// import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -85,7 +85,7 @@ function App() {
           }
         />
       </Routes>
-      <Analytics/>
+      {/* <Analytics/> */}
     </Router>
   );
 }
